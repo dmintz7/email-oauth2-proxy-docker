@@ -1,0 +1,15 @@
+services:
+  emailproxy:
+    image: dmintz/email-oauth2-proxy-docker
+    container_name: emailproxy
+    build: .
+    volumes:
+      - ./config:/config
+      - ./plugins:/app/plugins
+    ports:
+     - 1587:1587
+    environment:
+      LOGFILE: true
+      DEBUG: true
+      CACHE_STORE: /config/credstore.config
+      LOCAL_SERVER_AUTH: true #Optional
