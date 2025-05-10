@@ -1,6 +1,10 @@
 # Use a Python image based on Alpine Linux
 FROM python:3.11-alpine
 
+#Create the directories
+RUN mkdir -p /app
+RUN mkdir -p /app/plugins
+
 # Set the working directory
 WORKDIR /app
 
